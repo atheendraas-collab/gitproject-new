@@ -4,189 +4,832 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>StayEase - Hotel Booking</title>
+    <title>VÉRSE | Premium Phone Store</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="logo">🏨 StayEase</div>
+<!-- ================= NAVBAR ================= -->
 
-        <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#rooms">Rooms</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-        </div>
+<header class="navbar">
+
+    <div class="logo">
+        VÉRSE
+        <span>EST. 2026</span>
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#phones">Phones</a>
+        <a href="#collections">Collections</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
     </nav>
 
+    <div class="nav-icons">
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
+        <button onclick="openSearch()">⌕</button>
 
-        <div class="hero-content">
+        <button onclick="openCart()">
+            🛒
+            <span id="cartCount">0</span>
+        </button>
 
-            <h1>Find Your Perfect Stay</h1>
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
 
-            <p>Comfort, Luxury and Amazing Experiences</p>
+    </div>
 
-            <!-- Booking Search -->
-            <div class="booking-box">
+</header>
 
-                <div>
-                    <label>Location</label>
-                    <input type="text" id="location"
-                           placeholder="Enter location">
-                </div>
 
-                <div>
-                    <label>Check-in</label>
-                    <input type="date" id="checkin">
-                </div>
+<!-- ================= SEARCH ================= -->
 
-                <div>
-                    <label>Check-out</label>
-                    <input type="date" id="checkout">
-                </div>
+<div class="search-panel" id="searchPanel">
 
-                <div>
-                    <label>Guests</label>
-                    <select id="guests">
-                        <option value="1">1 Guest</option>
-                        <option value="2">2 Guests</option>
-                        <option value="3">3 Guests</option>
-                        <option value="4">4 Guests</option>
-                        <option value="5">5 Guests</option>
-                    </select>
-                </div>
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="Search phones..."
+        onkeyup="searchProducts()"
+    >
 
-                <button onclick="searchHotel()">
-                    Search
+    <button onclick="closeSearch()">✕</button>
+
+</div>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <p class="small-title">THE ART OF TECHNOLOGY</p>
+
+        <h1>
+            Technology<br>
+            <span>With Character.</span>
+        </h1>
+
+        <p class="hero-text">
+            Discover an extraordinary collection of smartphones
+            designed for those who appreciate performance,
+            elegance and timeless design.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#phones" class="gold-btn">
+                Explore Collection
+            </a>
+
+            <a href="#about" class="outline-btn">
+                Our Story
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="scroll-text">
+        SCROLL TO DISCOVER ↓
+    </div>
+
+</section>
+
+
+<!-- ================= INTRO ================= -->
+
+<section class="intro">
+
+    <div>
+
+        <p class="section-label">VÉRSE COLLECTION</p>
+
+        <h2>
+            A Different Kind<br>
+            Of <i>Luxury.</i>
+        </h2>
+
+    </div>
+
+    <p class="intro-text">
+        We believe technology should not only work beautifully.
+        It should feel beautiful. Every device in our collection
+        represents a balance between innovation, craftsmanship
+        and unmistakable style.
+    </p>
+
+</section>
+
+
+<!-- ================= CATEGORIES ================= -->
+
+<section class="categories" id="collections">
+
+    <div class="section-heading">
+
+        <p class="section-label">EXPLORE</p>
+
+        <h2>Our Collections</h2>
+
+    </div>
+
+    <div class="category-grid">
+
+        <div class="category-card flagship">
+
+            <div class="category-content">
+
+                <p>01</p>
+
+                <h3>Flagship</h3>
+
+                <span>Ultimate Performance →</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="category-card premium">
+
+            <div class="category-content">
+
+                <p>02</p>
+
+                <h3>Premium</h3>
+
+                <span>Designed To Impress →</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="category-card everyday">
+
+            <div class="category-content">
+
+                <p>03</p>
+
+                <h3>Everyday</h3>
+
+                <span>Simple. Powerful. →</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PRODUCTS ================= -->
+
+<section class="products" id="phones">
+
+    <div class="section-heading">
+
+        <p class="section-label">THE COLLECTION</p>
+
+        <h2>Exceptional Devices</h2>
+
+        <p>
+            Handpicked phones for people who expect more.
+        </p>
+
+    </div>
+
+
+    <!-- FILTER -->
+
+    <div class="filters">
+
+        <button class="filter active"
+                onclick="filterProducts('all', this)">
+            All
+        </button>
+
+        <button class="filter"
+                onclick="filterProducts('apple', this)">
+            Apple
+        </button>
+
+        <button class="filter"
+                onclick="filterProducts('samsung', this)">
+            Samsung
+        </button>
+
+        <button class="filter"
+                onclick="filterProducts('google', this)">
+            Google
+        </button>
+
+        <button class="filter"
+                onclick="filterProducts('premium', this)">
+            Premium
+        </button>
+
+    </div>
+
+
+    <!-- PRODUCT GRID -->
+
+    <div class="product-grid" id="productGrid">
+
+
+        <!-- PRODUCT 1 -->
+
+        <article class="product-card"
+                 data-category="apple"
+                 data-name="iPhone 17 Pro Max">
+
+            <div class="product-image">
+
+                <span class="badge">
+                    NEW
+                </span>
+
+                <img
+                src="https://images.unsplash.com/photo-1592286927505-2fd0f4f3d8c1?auto=format&fit=crop&w=900&q=80"
+                alt="iPhone">
+
+                <button class="quick-view"
+                        onclick="viewProduct('iPhone 17 Pro Max')">
+                    Quick View
                 </button>
 
             </div>
 
-        </div>
+            <div class="product-info">
 
-    </section>
+                <p class="brand">APPLE</p>
 
+                <h3>iPhone 17 Pro Max</h3>
 
-    <!-- Rooms -->
-    <section class="rooms" id="rooms">
+                <p class="description">
+                    Titanium design · Pro camera · A-series chip
+                </p>
 
-        <h2>Our Popular Rooms</h2>
+                <div class="product-bottom">
 
-        <div class="room-container">
+                    <strong>₹1,49,900</strong>
 
-            <!-- Room 1 -->
-            <div class="room-card">
-
-                <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32"
-                     alt="Deluxe Room">
-
-                <div class="room-info">
-
-                    <h3>Deluxe Room</h3>
-
-                    <p>🛏️ King Size Bed</p>
-                    <p>📶 Free Wi-Fi</p>
-                    <p>🍳 Breakfast Included</p>
-
-                    <h4>₹3,999 / Night</h4>
-
-                    <button onclick="bookRoom('Deluxe Room', 3999)">
-                        Book Now
+                    <button onclick="addToCart('iPhone 17 Pro Max')">
+                        + Add
                     </button>
 
                 </div>
 
             </div>
 
+        </article>
 
-            <!-- Room 2 -->
-            <div class="room-card">
 
-                <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b"
-                     alt="Luxury Suite">
+        <!-- PRODUCT 2 -->
 
-                <div class="room-info">
+        <article class="product-card"
+                 data-category="samsung"
+                 data-name="Galaxy S26 Ultra">
 
-                    <h3>Luxury Suite</h3>
+            <div class="product-image">
 
-                    <p>🛏️ King Size Bed</p>
-                    <p>🏊 Swimming Pool</p>
-                    <p>🍽️ Room Service</p>
+                <span class="badge">
+                    BESTSELLER
+                </span>
 
-                    <h4>₹6,999 / Night</h4>
+                <img
+                src="https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?auto=format&fit=crop&w=900&q=80"
+                alt="Samsung">
 
-                    <button onclick="bookRoom('Luxury Suite', 6999)">
-                        Book Now
+                <button class="quick-view"
+                        onclick="viewProduct('Galaxy S26 Ultra')">
+                    Quick View
+                </button>
+
+            </div>
+
+            <div class="product-info">
+
+                <p class="brand">SAMSUNG</p>
+
+                <h3>Galaxy S26 Ultra</h3>
+
+                <p class="description">
+                    Dynamic AMOLED · Ultra camera · S Pen
+                </p>
+
+                <div class="product-bottom">
+
+                    <strong>₹1,39,999</strong>
+
+                    <button onclick="addToCart('Galaxy S26 Ultra')">
+                        + Add
                     </button>
 
                 </div>
 
             </div>
 
+        </article>
 
-            <!-- Room 3 -->
-            <div class="room-card">
 
-                <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427"
-                     alt="Family Room">
+        <!-- PRODUCT 3 -->
 
-                <div class="room-info">
+        <article class="product-card"
+                 data-category="google"
+                 data-name="Pixel 10 Pro">
 
-                    <h3>Family Room</h3>
+            <div class="product-image">
 
-                    <p>🛏️ 2 Double Beds</p>
-                    <p>👨‍👩‍👧‍👦 Family Friendly</p>
-                    <p>📺 Smart TV</p>
+                <span class="badge">
+                    EDITOR'S PICK
+                </span>
 
-                    <h4>₹4,999 / Night</h4>
+                <img
+                src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=900&q=80"
+                alt="Google Pixel">
 
-                    <button onclick="bookRoom('Family Room', 4999)">
-                        Book Now
+                <button class="quick-view"
+                        onclick="viewProduct('Pixel 10 Pro')">
+                    Quick View
+                </button>
+
+            </div>
+
+            <div class="product-info">
+
+                <p class="brand">GOOGLE</p>
+
+                <h3>Pixel 10 Pro</h3>
+
+                <p class="description">
+                    AI camera · Pure Android · Pro display
+                </p>
+
+                <div class="product-bottom">
+
+                    <strong>₹1,09,999</strong>
+
+                    <button onclick="addToCart('Pixel 10 Pro')">
+                        + Add
                     </button>
 
                 </div>
 
             </div>
 
-        </div>
-
-    </section>
+        </article>
 
 
-    <!-- About -->
-    <section class="about" id="about">
+        <!-- PRODUCT 4 -->
 
-        <h2>About StayEase</h2>
+        <article class="product-card"
+                 data-category="premium"
+                 data-name="Luxury Fold X">
 
-        <p>
-            StayEase helps you find comfortable and affordable
-            hotels for your perfect vacation.
+            <div class="product-image">
+
+                <span class="badge">
+                    LIMITED
+                </span>
+
+                <img
+                src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?auto=format&fit=crop&w=900&q=80"
+                alt="Premium Phone">
+
+                <button class="quick-view"
+                        onclick="viewProduct('Luxury Fold X')">
+                    Quick View
+                </button>
+
+            </div>
+
+            <div class="product-info">
+
+                <p class="brand">VÉRSE EDITION</p>
+
+                <h3>Luxury Fold X</h3>
+
+                <p class="description">
+                    Foldable display · Leather finish · 512GB
+                </p>
+
+                <div class="product-bottom">
+
+                    <strong>₹1,89,900</strong>
+
+                    <button onclick="addToCart('Luxury Fold X')">
+                        + Add
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- PRODUCT 5 -->
+
+        <article class="product-card"
+                 data-category="apple"
+                 data-name="iPhone Air">
+
+            <div class="product-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?auto=format&fit=crop&w=900&q=80"
+                alt="iPhone Air">
+
+                <button class="quick-view"
+                        onclick="viewProduct('iPhone Air')">
+                    Quick View
+                </button>
+
+            </div>
+
+            <div class="product-info">
+
+                <p class="brand">APPLE</p>
+
+                <h3>iPhone Air</h3>
+
+                <p class="description">
+                    Ultra thin · Super Retina · 256GB
+                </p>
+
+                <div class="product-bottom">
+
+                    <strong>₹89,900</strong>
+
+                    <button onclick="addToCart('iPhone Air')">
+                        + Add
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- PRODUCT 6 -->
+
+        <article class="product-card"
+                 data-category="samsung"
+                 data-name="Galaxy Z Fold">
+
+            <div class="product-image">
+
+                <span class="badge">
+                    NEW
+                </span>
+
+                <img
+                src="https://images.unsplash.com/photo-1585060544812-6b45742d762f?auto=format&fit=crop&w=900&q=80"
+                alt="Galaxy Fold">
+
+                <button class="quick-view"
+                        onclick="viewProduct('Galaxy Z Fold')">
+                    Quick View
+                </button>
+
+            </div>
+
+            <div class="product-info">
+
+                <p class="brand">SAMSUNG</p>
+
+                <h3>Galaxy Z Fold</h3>
+
+                <p class="description">
+                    Foldable · Multitasking · Pro performance
+                </p>
+
+                <div class="product-bottom">
+
+                    <strong>₹1,64,999</strong>
+
+                    <button onclick="addToCart('Galaxy Z Fold')">
+                        + Add
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FEATURE ================= -->
+
+<section class="feature">
+
+    <div class="feature-image"></div>
+
+    <div class="feature-content">
+
+        <p class="section-label">
+            THE VÉRSE PHILOSOPHY
         </p>
 
-    </section>
+        <h2>
+            Technology<br>
+            Worth <i>Remembering.</i>
+        </h2>
+
+        <p>
+            From the first touch to the final detail,
+            we believe every interaction should feel
+            intentional.
+        </p>
+
+        <a href="#about" class="gold-btn">
+            Discover Our Story
+        </a>
+
+    </div>
+
+</section>
 
 
-    <!-- Contact -->
-    <footer id="contact">
+<!-- ================= SERVICES ================= -->
 
-        <h3>🏨 StayEase Hotel</h3>
+<section class="services">
 
-        <p>📧 stayease@gmail.com</p>
-        <p>📞 +91 98765 43210</p>
+    <div class="service">
 
-        <p>© 2026 StayEase. All Rights Reserved.</p>
+        <div class="service-icon">✦</div>
 
-    </footer>
+        <h3>Authentic Products</h3>
+
+        <p>
+            100% genuine devices with official warranty.
+        </p>
+
+    </div>
 
 
-    <script src="script.js"></script>
+    <div class="service">
+
+        <div class="service-icon">◇</div>
+
+        <h3>Premium Packaging</h3>
+
+        <p>
+            Every order is carefully prepared and protected.
+        </p>
+
+    </div>
+
+
+    <div class="service">
+
+        <div class="service-icon">↗</div>
+
+        <h3>Fast Delivery</h3>
+
+        <p>
+            Reliable delivery across India.
+        </p>
+
+    </div>
+
+
+    <div class="service">
+
+        <div class="service-icon">♡</div>
+
+        <h3>Dedicated Support</h3>
+
+        <p>
+            We're here whenever you need us.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="about" id="about">
+
+    <p class="section-label">
+        ABOUT VÉRSE
+    </p>
+
+    <h2>
+        More Than A<br>
+        Phone Store.
+    </h2>
+
+    <p class="about-text">
+        VÉRSE was created for people who see technology
+        differently. We curate exceptional smartphones
+        and transform the experience of buying technology
+        into something memorable.
+    </p>
+
+</section>
+
+
+<!-- ================= NEWSLETTER ================= -->
+
+<section class="newsletter">
+
+    <p class="section-label">
+        THE JOURNAL
+    </p>
+
+    <h2>
+        Stay In The Know.
+    </h2>
+
+    <p>
+        New arrivals, exclusive offers and technology stories.
+    </p>
+
+    <div class="newsletter-form">
+
+        <input
+            type="email"
+            id="email"
+            placeholder="Your email address"
+        >
+
+        <button onclick="subscribe()">
+            Subscribe
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer id="contact">
+
+    <div class="footer-top">
+
+        <div class="footer-brand">
+
+            <div class="logo">
+                VÉRSE
+                <span>EST. 2026</span>
+            </div>
+
+            <p>
+                Technology with character.
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>SHOP</h4>
+
+            <a href="#phones">All Phones</a>
+            <a href="#collections">Collections</a>
+            <a href="#">New Arrivals</a>
+            <a href="#">Accessories</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>HELP</h4>
+
+            <a href="#">Shipping</a>
+            <a href="#">Returns</a>
+            <a href="#">Warranty</a>
+            <a href="#">Support</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>CONTACT</h4>
+
+            <p>hello@verse.in</p>
+            <p>+91 98765 43210</p>
+            <p>Kerala, India</p>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 VÉRSE. All Rights Reserved.
+        </p>
+
+        <p>
+            Privacy · Terms · Cookies
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!-- ================= PRODUCT MODAL ================= -->
+
+<div class="modal" id="productModal">
+
+    <div class="modal-content">
+
+        <button class="close"
+                onclick="closeModal()">
+            ×
+        </button>
+
+        <p class="section-label">
+            PRODUCT DETAILS
+        </p>
+
+        <h2 id="modalProductName">
+            Product
+        </h2>
+
+        <p id="modalDescription">
+            Premium smartphone.
+        </p>
+
+        <div class="modal-price"
+             id="modalPrice">
+            ₹0
+        </div>
+
+        <button class="gold-btn"
+                onclick="addModalProduct()">
+            Add To Cart
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= CART ================= -->
+
+<div class="cart-panel" id="cartPanel">
+
+    <div class="cart-header">
+
+        <h2>Your Cart</h2>
+
+        <button onclick="closeCart()">×</button>
+
+    </div>
+
+    <div id="cartItems">
+
+        <p class="empty-cart">
+            Your cart is empty.
+        </p>
+
+    </div>
+
+    <div class="cart-footer">
+
+        <div>
+            Total:
+            <strong id="cartTotal">₹0</strong>
+        </div>
+
+        <button class="gold-btn"
+                onclick="checkout()">
+            Checkout
+        </button>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
 
 </body>
 </html>
