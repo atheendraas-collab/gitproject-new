@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StayEase - Hotel Booking</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">🏨 StayEase</div>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#rooms">Rooms</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <h1>Find Your Perfect Stay</h1>
+
+            <p>Comfort, Luxury and Amazing Experiences</p>
+
+            <!-- Booking Search -->
+            <div class="booking-box">
+
+                <div>
+                    <label>Location</label>
+                    <input type="text" id="location"
+                           placeholder="Enter location">
+                </div>
+
+                <div>
+                    <label>Check-in</label>
+                    <input type="date" id="checkin">
+                </div>
+
+                <div>
+                    <label>Check-out</label>
+                    <input type="date" id="checkout">
+                </div>
+
+                <div>
+                    <label>Guests</label>
+                    <select id="guests">
+                        <option value="1">1 Guest</option>
+                        <option value="2">2 Guests</option>
+                        <option value="3">3 Guests</option>
+                        <option value="4">4 Guests</option>
+                        <option value="5">5 Guests</option>
+                    </select>
+                </div>
+
+                <button onclick="searchHotel()">
+                    Search
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Rooms -->
+    <section class="rooms" id="rooms">
+
+        <h2>Our Popular Rooms</h2>
+
+        <div class="room-container">
+
+            <!-- Room 1 -->
+            <div class="room-card">
+
+                <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32"
+                     alt="Deluxe Room">
+
+                <div class="room-info">
+
+                    <h3>Deluxe Room</h3>
+
+                    <p>🛏️ King Size Bed</p>
+                    <p>📶 Free Wi-Fi</p>
+                    <p>🍳 Breakfast Included</p>
+
+                    <h4>₹3,999 / Night</h4>
+
+                    <button onclick="bookRoom('Deluxe Room', 3999)">
+                        Book Now
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Room 2 -->
+            <div class="room-card">
+
+                <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b"
+                     alt="Luxury Suite">
+
+                <div class="room-info">
+
+                    <h3>Luxury Suite</h3>
+
+                    <p>🛏️ King Size Bed</p>
+                    <p>🏊 Swimming Pool</p>
+                    <p>🍽️ Room Service</p>
+
+                    <h4>₹6,999 / Night</h4>
+
+                    <button onclick="bookRoom('Luxury Suite', 6999)">
+                        Book Now
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Room 3 -->
+            <div class="room-card">
+
+                <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427"
+                     alt="Family Room">
+
+                <div class="room-info">
+
+                    <h3>Family Room</h3>
+
+                    <p>🛏️ 2 Double Beds</p>
+                    <p>👨‍👩‍👧‍👦 Family Friendly</p>
+                    <p>📺 Smart TV</p>
+
+                    <h4>₹4,999 / Night</h4>
+
+                    <button onclick="bookRoom('Family Room', 4999)">
+                        Book Now
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- About -->
+    <section class="about" id="about">
+
+        <h2>About StayEase</h2>
+
+        <p>
+            StayEase helps you find comfortable and affordable
+            hotels for your perfect vacation.
+        </p>
+
+    </section>
+
+
+    <!-- Contact -->
+    <footer id="contact">
+
+        <h3>🏨 StayEase Hotel</h3>
+
+        <p>📧 stayease@gmail.com</p>
+        <p>📞 +91 98765 43210</p>
+
+        <p>© 2026 StayEase. All Rights Reserved.</p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
