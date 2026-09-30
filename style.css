@@ -1,0 +1,301 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f5f7fa;
+    color: #333;
+}
+
+
+/* NAVBAR */
+
+nav {
+    background: #102a43;
+    color: white;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px 8%;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #ffd166;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 16px;
+}
+
+.nav-links a:hover {
+    color: #ffd166;
+}
+
+
+/* HERO */
+
+.hero {
+    height: 500px;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.5),
+            rgba(0,0,0,0.5)
+        ),
+        url("https://images.unsplash.com/photo-1566073771259-6a8506099945");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    color: white;
+}
+
+.hero-content h1 {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+
+/* BOOKING BOX */
+
+.booking-box {
+    background: white;
+    color: #333;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    display: flex;
+    gap: 15px;
+    align-items: end;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.booking-box div {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.booking-box label {
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+.booking-box input,
+.booking-box select {
+    width: 150px;
+    padding: 12px;
+
+    border: 1px solid #ddd;
+    border-radius: 7px;
+}
+
+.booking-box button {
+    padding: 12px 25px;
+
+    background: #ff6b35;
+    color: white;
+
+    border: none;
+    border-radius: 7px;
+
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.booking-box button:hover {
+    background: #e85b2a;
+}
+
+
+/* ROOMS */
+
+.rooms {
+    padding: 60px 8%;
+    text-align: center;
+}
+
+.rooms h2,
+.about h2 {
+    font-size: 32px;
+    color: #102a43;
+    margin-bottom: 35px;
+}
+
+.room-container {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+
+    gap: 30px;
+}
+
+.room-card {
+    background: white;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+
+    transition: 0.3s;
+}
+
+.room-card:hover {
+    transform: translateY(-8px);
+}
+
+.room-card img {
+    width: 100%;
+    height: 220px;
+
+    object-fit: cover;
+}
+
+.room-info {
+    padding: 22px;
+    text-align: left;
+}
+
+.room-info h3 {
+    color: #102a43;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.room-info p {
+    margin: 8px 0;
+}
+
+.room-info h4 {
+    color: #ff6b35;
+    font-size: 21px;
+    margin: 15px 0;
+}
+
+.room-info button {
+    width: 100%;
+
+    padding: 12px;
+
+    border: none;
+    border-radius: 7px;
+
+    background: #102a43;
+    color: white;
+
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.room-info button:hover {
+    background: #1d4e89;
+}
+
+
+/* ABOUT */
+
+.about {
+    background: white;
+
+    text-align: center;
+
+    padding: 70px 20px;
+}
+
+.about p {
+    font-size: 18px;
+}
+
+
+/* FOOTER */
+
+footer {
+    background: #102a43;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 30px;
+}
+
+footer h3 {
+    color: #ffd166;
+    margin-bottom: 10px;
+}
+
+footer p {
+    margin: 7px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links a {
+        margin: 0 8px;
+    }
+
+    .hero {
+        height: auto;
+        padding: 80px 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 35px;
+    }
+
+    .booking-box {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .booking-box input,
+    .booking-box select {
+        width: 100%;
+    }
+
+    .booking-box button {
+        width: 100%;
+    }
+}
